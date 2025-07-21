@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/control-de-personal/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Control de Personal - Aplicación Flutter para gestión de personal en obras de construcción">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Control de Personal">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Control de Personal</title>
+  <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+  <!-- Loading indicator -->
+  <div id="loading">
+    <style>
+      body {
+        inset: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        position: fixed;
+      }
+      #loading {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        width: 100%;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+      }
+      #loading img {
+        animation: 1s ease-in-out 0s infinite alternate breathe;
+        opacity: .8;
+        transition: opacity .4s;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      }
+      #loading.main_done img {
+        opacity: 1;
+      }
+      @keyframes breathe {
+        from {
+          transform: scale(1)
+        }
+        to {
+          transform: scale(0.95)
+        }
+      }
+    </style>
+    <img src="icons/Icon-192.png" alt="Cargando Control de Personal..." />
+  </div>
+  
+  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('load', function(ev) {
+      _flutter.loader.loadEntrypoint({
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
